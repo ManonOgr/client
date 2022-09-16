@@ -3,19 +3,18 @@ import { useState } from "react";
 import { modification } from "../services/modification";
 import {useForm} from "react-hook-form";
 import { ajout } from "../services/ajout";
-import {useLocation} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
+
 
 function Formulaire(props) {
   let token = localStorage.getItem("token");
   let id = localStorage.getItem("id");
   let location = useLocation()
+  const navigate = useNavigate();
+ 
   const {register, getValues, formState : {errors} ,handleSubmit}=  useForm({
     mode: 'onSubmit',
   })
-
-
-
-
 
 
 const registernew = data =>{
@@ -23,10 +22,12 @@ const registernew = data =>{
     if (location.pathname === "/Ajout") {
       let UrlAdd= `http://localhost:7000/api/collaborateurs`
       ajout(token, UrlAdd, data.civilité, data.prenom, data.nom, data.mail, data.password, data.tel, data.anniv, data.ville, data.pays, data.urlphoto, data.categories)
+      navigate('/List')
     }else if(
       location.pathname === "/Modification"
     ){
       modification(token, Url, data.civilité, data.prenom, data.nom, data.mail, data.password, data.tel, data.anniv, data.ville, data.pays, data.urlphoto, data.categories)
+      navigate('/List')
     }
     
 }
@@ -95,7 +96,7 @@ const registernew = data =>{
         <input   defaultValue={props.urlphoto} {...register('urlphoto')}  name="urlphoto" type="url" />
       </label>
 
-      <button onClick={() => register()} className="button" >Enregistrer</button>
+      <button className="button" >Enregistrer</button>
     </form>
   );
 }

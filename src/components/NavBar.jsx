@@ -13,7 +13,7 @@ function NavBar(){
 let id = localStorage.getItem('id');
 let [datasPeople, setDatasPeople] = useState();
 let token = localStorage.getItem('token')
-let admin = localStorage.getItem('admin')
+let admin = JSON.parse(localStorage.getItem('admin'));
 
 useEffect(() =>{
     let Url=`http://localhost:7000/api/collaborateurs/${id}`
