@@ -9,8 +9,9 @@ function Formulaire(props) {
     civilité: "",
     firstname: "",
     lastname: "",
-    email: "",
+    mail: "",
     password: "",
+    confirmpassword:"",
     phone: "",
     birthdate: "",
     city: "",
@@ -20,75 +21,94 @@ function Formulaire(props) {
   });
 
   const Change = (prop) => (event) => {
-      console.log('ok')
+      console.log(DatasUsers)
     SetDatasUsers({ ...DatasUsers, [prop]: event.target.value });
   };
   console.log(DatasUsers);
   function register() {
-    
+    let Url = `http://localhost:7000/api/collaborateurs/${id}`
+    if (DatasUsers?.password !== DatasUsers?.confirmpassword) {
+       let errormsg = document.getElementById("errormsg")
+       errormsg.innerHTML="Les mots de passe ne sont pas identiques "
+    }else{
+        modification(  token,
+            Url,
+            DatasUsers.civilité,
+            DatasUsers.firstname,
+            DatasUsers.lastname,
+            DatasUsers.mail,
+            DatasUsers.password,
+            DatasUsers.phone,
+            DatasUsers.birthdate,
+            DatasUsers.city,
+            DatasUsers.country,
+            DatasUsers.photo,
+            DatasUsers.service)
+    }
   }
 
   return (
     <div className="formmodif">
-      <select name="choice" id="choice">
-        <option selected={props.civilité === "male" ? true : false} onClick={() => {console.log('ok')}} >
+      <select onChange={Change('civilité')}  name="choice" id="choice">
+        <option selected={props.civilité === "male" ? true : false} value="male" >
           Homme
         </option>
-        <option selected={props.civilité === "female" ? true : false}>
+        <option selected={props.civilité === "female" ? true : false} value="female">
           Femme
         </option>
       </select>
-      <select name="choice" id="choice-select">
+      <select onChange={Change('service')}  name="choice" id="choice-select">
         <option value="choice">--Choisissez une catégorie--</option>
-        <option selected={props.categories === "Marketing" ? true : false}>
+        <option selected={props.categories === "Marketing" ? true : false} value="Marketing">
           Marketing
         </option>
-        <option selected={props.categories === "Technique" ? true : false}>
+        <option selected={props.categories === "Technique" ? true : false} value="Technique">
           Technique
         </option>
-        <option selected={props.categories === "Client" ? true : false}>
+        <option selected={props.categories === "Client" ? true : false} value="Client">
           Client
         </option>
       </select>
       <label>
         Nom:
-        <input defaultValue={props.nom} type="text" />
+        <input  onChange={Change('lastname')}  defaultValue={props.nom} type="text" />
       </label>
       <label>
         Prenom:
-        <input defaultValue={props.prenom} type="text" />
+        <input   onChange={Change('firstname')} defaultValue={props.prenom} type="text" />
       </label>
       <label>
         Email:
-        <input defaultValue={props.mail} type="email" />
+        <input   onChange={Change('mail')} defaultValue={props.mail} type="email" />
       </label>
       <label>
         Mot de passe:
-        <input type="password" />
+        <input onChange={Change('password')} type="password" />
       </label>
       <label>
         Confirmation:
-        <input type="password" />
+        <input onChange={Change('confirmpassword')} type="password" />
       </label>
+      <span id="errormsg"></span>
       <label>
         Téléphone:
-        <input defaultValue={props.tel} type="tel" />
+        <input  onChange={Change('phone')}  defaultValue={props.tel} type="tel" />
       </label>
       <label>
         Date de naissance:
-        <input defaultValue={props.anniv} type="date" />
+        <input  onChange={Change('birthdate')}  defaultValue={props.anniv} type="date" />
       </label>
       <label>
         Ville:
-        <input defaultValue={props.ville} type="text" />
+        <input  onChange={Change('city')}  defaultValue={props.ville} type="text" />
       </label>
       <label>
         Pays:
-        <input defaultValue={props.pays} type="text" />
+        <input  onChange={Change('country')}  defaultValue={props.pays} type="text" />
       </label>
       <label>
         URL de la photo:
-        <input defaultValue={props.urlphoto} type="url" />
+        <input  onChange={Change('photo')}  defaultValue={props.urlphoto} type="url" />
       </label>
 
       <button onClick={() => register()}>Enregistrer</button>
