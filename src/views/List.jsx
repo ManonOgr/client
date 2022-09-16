@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import {useForm} from "react-hook-form";
 
 import Card from "../components/Card";
 import NavBar from "../components/NavBar";
@@ -10,7 +11,9 @@ function List() {
   let token = localStorage.getItem("token");
   let navigate = useNavigate();
   let input = useRef();
-
+const {register, handleSubmit}=  useForm({
+    mode: 'onChange',
+  })
 
   let [DatasPeoples, SetDataPeoples] = useState();
   let [Datafilter, SetDataFilter] = useState();
@@ -25,49 +28,69 @@ function List() {
     }
   }, []);
 
-  function filter(){
-    if(input.current.value !== ""){
-      let filterDatas = DatasPeoples.filter((people) =>{
-        return people.firstname.toLowerCase().includes(input.current.value)
-      })
-      SetDataFilter(filterDatas)
-    } if(input.current.value === ""){
-      SetDataFilter(DatasPeoples)
-    }
-  }
+ 
 
-  function SwitchCategorie(cat){
-switch(cat)
-{
-  case "Client": {
-  let filterSearch = DatasPeoples.filter((people) =>{
-  people.service == cat
-  SetDataFilter(filterSearch)
-  console.log(filterSearch)
-  })
-  break;
-}
-  case "Marketing": {
-    let filterSearch = DatasPeoples.filter((people) =>{
-      people.service == cat
-      SetDataFilter(filterSearch)
-      console.log(filterSearch)
-  })
-  break;
-}
-  case "Technique": {
-    let filterSearch = DatasPeoples.filter((people) =>{
-      people.service == cat
-      SetDataFilter(filterSearch)
-      console.log(filterSearch)
-  })
-  break;
-}
   
+
+
+  const onChange = data => {
+if (data.choice === "name" && data.choicecat === "Marketing") { 
+  const filter = Datafilter.filter(filterpeople => {
+    let name = filterpeople.firstname + filterpeople.lastname
+    return(name.toLowerCase().includes(data.q)&& filterpeople.service === "Marketing")
+  })
+  console.log(filter)
+  SetDataPeoples(filter)
 }
+if (data.choice === "city" && data.choicecat === "Marketing") { 
+  const filter = Datafilter.filter(filterpeople => {
+    return(filterpeople.city.toLowerCase().includes(data.q)&& filterpeople.service === "Marketing")
+  })
+  console.log(filter)
+  SetDataPeoples(filter)
+}
+if (data.choice === "name" && data.choicecat === "Technique") { 
+  const filter = Datafilter.filter(filterpeople => {
+    let name = filterpeople.firstname + filterpeople.lastname
+    return(name.toLowerCase().includes(data.q)&& filterpeople.service === "Technique")
+  })
+  SetDataPeoples(filter)
+}
+if (data.choice === "city" && data.choicecat === "Technique") { 
+  const filter = Datafilter.filter(filterpeople => {
+    return(filterpeople.city.toLowerCase().includes(data.q)&& filterpeople.service === "Technique")
+  })
+  SetDataPeoples(filter)
+}
+if (data.choice === "name" && data.choicecat === "Client") { 
+  const filter = Datafilter.filter(filterpeople => {
+    let name = filterpeople.firstname + filterpeople.lastname
+    return(name.toLowerCase().includes(data.q)&& filterpeople.service === "Client")
+  })
+  SetDataPeoples(filter)
+}
+if (data.choice === "city" && data.choicecat === "Client") { 
+  const filter = Datafilter.filter(filterpeople => {
+    return(filterpeople.city.toLowerCase().includes(data.q)&& filterpeople.service === "Client")
+  })
+  SetDataPeoples(filter)
+}
+if (data.choice === "name" && data.choicecat === "") { 
+  const filter = Datafilter.filter(filterpeople => {
+    let name = filterpeople.firstname + filterpeople.lastname
+    return(name.toLowerCase().includes(data.q))
+  })
+  SetDataPeoples(filter)
+}
+if (data.choice === "city" && data.choicecat === "") { 
+  const filter = Datafilter.filter(filterpeople => {
+    return(filterpeople.city.toLowerCase().includes(data.q))
+  })
+  SetDataPeoples(filter)
+}
+
+    console.log(data)
   }
-
-
 
 
 
@@ -89,31 +112,31 @@ switch(cat)
 
      
         <div className="containersearch">
-          <div className="Search">
+          <form className="Search" onChange={handleSubmit(onChange)}>
             <input
-              onChange={filter} type="text"
+             type="text"
               id="site-search"
               name="q"
-              placeholder="Recherche..." ref={input} 
+              {...register('q')}
+              placeholder="Recherche..."
             />
   
-            <select name="choice" id="choice-select">
-              <option value="choice">--Choisissez une option--</option>
+            <select name="choice" id="choice-select" {...register('choice')}>
               <option value="name">Nom</option>
-              <option value="localisation">Localisation</option>
+              <option value="city">Ville</option>
             </select>
             <label>Catégorie:</label>
-            <select name="choice" id="choice-select">
+            <select name="choicecat" id="choice-select" {...register('choicecat')}>
               <option value="choice">--Choisissez une catégorie--</option>
-              <option onClick={() => SwitchCategorie('Marketing')} value="mark">Marketing</option>
-              <option onClick={() => SwitchCategorie('Technique')} value="tech">Technique</option>
-              <option onClick={() => SwitchCategorie('Client')} value="client">Client</option>
+              <option onClick={() => SwitchCategorie('Marketing')} value="Marketing">Marketing</option>
+              <option onClick={() => SwitchCategorie('Technique')} value="Technique">Technique</option>
+              <option onClick={() => SwitchCategorie('Client')} value="Client">Client</option>
             </select>
-          </div>
+          </form>
         </div>
       )}
         <div className="listperso">
-          {Datafilter?.map((people) => {
+          {DatasPeoples?.map((people) => {
             return (
               <Card
                 key={people.id}
