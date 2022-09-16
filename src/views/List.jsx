@@ -75,14 +75,14 @@ if (data.choice === "city" && data.choicecat === "Client") {
   })
   SetDataPeoples(filter)
 }
-if (data.choice === "name" && data.choicecat === "") { 
+if (data.choice === "name" && data.choicecat === "choice") { 
   const filter = Datafilter.filter(filterpeople => {
     let name = filterpeople.firstname + filterpeople.lastname
     return(name.toLowerCase().includes(data.q))
   })
   SetDataPeoples(filter)
 }
-if (data.choice === "city" && data.choicecat === "") { 
+if (data.choice === "city" && data.choicecat === "choice") { 
   const filter = Datafilter.filter(filterpeople => {
     return(filterpeople.city.toLowerCase().includes(data.q))
   })

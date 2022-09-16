@@ -8,9 +8,6 @@ import { useNavigate } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import Formulaire from "../components/Formulaire";
 
-
-
-
 function Modification() {
 
   let token = localStorage.getItem('token');
