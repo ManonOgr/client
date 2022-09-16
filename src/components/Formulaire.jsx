@@ -1,118 +1,91 @@
 import React from "react";
 import { useState } from "react";
 import { modification } from "../services/modification";
+import {useForm} from "react-hook-form";
 
 function Formulaire(props) {
   let token = localStorage.getItem("token");
   let id = localStorage.getItem("id");
-  let [DatasUsers, SetDatasUsers] = useState({
-    civilité: "",
-    firstname: "",
-    lastname: "",
-    mail: "",
-    password: "",
-    confirmpassword:"",
-    phone: "",
-    birthdate: "",
-    city: "",
-    country: "",
-    photo: "",
-    service: "",
-  });
+  const {register, getValues, formState : {errors} ,handleSubmit}=  useForm({
+    mode: 'onSubmit',
+  })
 
-  const Change = (prop) => (event) => {
-      console.log(DatasUsers)
-    SetDatasUsers({ ...DatasUsers, [prop]: event.target.value });
-  };
-  console.log(DatasUsers);
-  function register() {
+
+
+
+
+
+const registernew = data =>{
     let Url = `http://localhost:7000/api/collaborateurs/${id}`
-    if (DatasUsers?.password !== DatasUsers?.confirmpassword) {
-       let errormsg = document.getElementById("errormsg")
-       errormsg.innerHTML="Les mots de passe ne sont pas identiques "
-    }else{
-        modification(  token,
-            Url,
-            DatasUsers.civilité,
-            DatasUsers.firstname,
-            DatasUsers.lastname,
-            DatasUsers.mail,
-            DatasUsers.password,
-            DatasUsers.phone,
-            DatasUsers.birthdate,
-            DatasUsers.city,
-            DatasUsers.country,
-            DatasUsers.photo,
-            DatasUsers.service)
-    }
-  }
+    modification(token, Url, data.civilité, data.prenom, data.nom, data.mail, data.password, data.tel, data.anniv, data.ville, data.pays, data.urlphoto, data.categories)
+}
+
 
   return (
-    <div className="formmodif">
-      <select onChange={Change('civilité')}  name="choice" id="choice">
-        <option selected={props.civilité === "male" ? true : false} value="male" >
+    <form onSubmit={handleSubmit(registernew)} className="formmodif">
+      <select defaultValue={props.civilité} {...register('civilité')} name="civilité" id="choice">
+        <option value="male" >
           Homme
         </option>
-        <option selected={props.civilité === "female" ? true : false} value="female">
+        <option value="female">
           Femme
         </option>
       </select>
-      <select onChange={Change('service')}  name="choice" id="choice-select">
-        <option value="choice">--Choisissez une catégorie--</option>
-        <option selected={props.categories === "Marketing" ? true : false} value="Marketing">
+      <select defaultValue={props.categories} {...register('categories')} name="categories" id="choice-select">
+        <option value="Marketing">
           Marketing
         </option>
-        <option selected={props.categories === "Technique" ? true : false} value="Technique">
+        <option  value="Technique">
           Technique
         </option>
-        <option selected={props.categories === "Client" ? true : false} value="Client">
+        <option value="Client">
           Client
         </option>
       </select>
       <label>
         Nom:
-        <input  onChange={Change('lastname')}  defaultValue={props.nom} type="text" />
+        <input   defaultValue={props.nom} {...register('nom')} name="nom" type="text" />
       </label>
       <label>
         Prenom:
-        <input   onChange={Change('firstname')} defaultValue={props.prenom} type="text" />
+        <input    defaultValue={props.prenom} {...register('prenom')} name="prenom" type="text" />
       </label>
       <label>
         Email:
-        <input   onChange={Change('mail')} defaultValue={props.mail} type="email" />
+        <input    defaultValue={props.mail}  {...register('mail')} name="mail" type="email" />
       </label>
       <label>
         Mot de passe:
-        <input onChange={Change('password')} type="password" />
+        <input  type="password" {...register('password')} name="password"/>
       </label>
       <label>
         Confirmation:
-        <input onChange={Change('confirmpassword')} type="password" />
+        <input name="passwordconfirm" {...register('passwordconfirm',{validate: val => val === getValues('password')})} type="password" />
       </label>
-      <span id="errormsg"></span>
+    
       <label>
         Téléphone:
-        <input  onChange={Change('phone')}  defaultValue={props.tel} type="tel" />
+        <input    defaultValue={props.tel} {...register('tel')}  name="tel" type="tel" />
       </label>
       <label>
         Date de naissance:
-        <input  onChange={Change('birthdate')}  defaultValue={props.anniv} type="date" />
+        <input   defaultValue={props.anniv}  {...register('anniv')}  name="anniv" type="date" />
       </label>
       <label>
         Ville:
-        <input  onChange={Change('city')}  defaultValue={props.ville} type="text" />
+        <input    defaultValue={props.ville} {...register('ville')}  name="ville" type="text" />
       </label>
       <label>
         Pays:
-        <input  onChange={Change('country')}  defaultValue={props.pays} type="text" />
+        <input   defaultValue={props.pays} {...register('pays')}  name="pays" type="text" />
       </label>
       <label>
         URL de la photo:
-        <input  onChange={Change('photo')}  defaultValue={props.urlphoto} type="url" />
+        <input   defaultValue={props.urlphoto} {...register('urlphoto')}  name="urlphoto" type="url" />
       </label>
 
-      <button onClick={() => register()}>Enregistrer</button>
-    </div>
+      <button onClick={() => register()} >Enregistrer</button>
+    </form>
   );
 }
 
