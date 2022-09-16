@@ -95,7 +95,7 @@ const registernew = data =>{
         <input   defaultValue={props.urlphoto} {...register('urlphoto')}  name="urlphoto" type="url" />
       </label>
 
-      <button onClick={() => register()} >Enregistrer</button>
+      <button onClick={() => register()} className="button" >Enregistrer</button>
     </form>
   );
 }

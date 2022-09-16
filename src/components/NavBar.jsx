@@ -41,7 +41,7 @@ useEffect(() =>{
         
 <div style={{display:admin?"block":"none"}}>
 <Link  to={'/Ajout'}>
-    <button>Ajouter un collaborateur</button>
+    <button className="btnnav"> <img src="https://img.icons8.com/windows/30/000000/add--v1.png"/> <span className='txtdeco'>Ajout collaborateur</span></button>
     </Link>
 </div>
 

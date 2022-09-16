@@ -127,7 +127,7 @@ if (data.choice === "city" && data.choicecat === "choice") {
             </select>
             <label>Catégorie:</label>
             <select name="choicecat" id="choice-select" {...register('choicecat')}>
-              <option value="choice">--Choisissez une catégorie--</option>
+              <option value="choice">--Catégorie--</option>
               <option onClick={() => SwitchCategorie('Marketing')} value="Marketing">Marketing</option>
               <option onClick={() => SwitchCategorie('Technique')} value="Technique">Technique</option>
               <option onClick={() => SwitchCategorie('Client')} value="Client">Client</option>
