@@ -1,0 +1,416 @@
+html {
+  display: block;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0px;
+  background-color: #c4c4c4;
+  color: #000000;
+  width: 100% !important;
+}
+
+#root {
+  width: 100% !important;
+}
+
+button,
+.button {
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0ebebe;
+  border: none;
+  height: 50px;
+  width: 100px;
+  color: #000000;
+  box-shadow: 0 20px 20px -10px #615f5f;
+}
+
+span {
+  color: #0ebebe;
+}
+/*Navigation*/
+
+nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 30px !important;
+  width: auto;
+  background-color: #0ebebe;
+  box-shadow: 0 20px 20px -10px #2c2b2b;
+}
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: auto;
+}
+
+.logo img {
+  width: 60%;
+}
+
+.containermorenav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 20px;
+  width: 350px;
+}
+
+.txtdeco {
+  color: #000000;
+}
+
+.list {
+  display: flex;
+  flex-direction: row;
+}
+
+.imgpersoco img {
+  border-radius: 50%;
+  width: 80px;
+  margin-top: 10px;
+}
+
+/*Formulaire de connexion*/
+.connexion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  border-radius: 30px;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  padding-top: 70px;
+  background: linear-gradient(to bottom right, #0ebebe, #fec89a);
+  box-shadow: 0 20px 20px -10px #615f5f;
+}
+
+form img {
+  width: 230px;
+}
+
+.connexion form input {
+  margin-top: 30px;
+}
+
+.connexion button {
+  margin-top: 30px;
+}
+input {
+  background-color: #ffff;
+  border-radius: 20px;
+  color: #000000;
+  height: 20px;
+}
+
+form button {
+  margin-top: 70px;
+  margin-bottom: 70px;
+}
+
+/*Cards*/
+
+.containeracceuil {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 2px solid blue;
+}
+
+.cards {
+  width: 40%;
+  border-radius: 30px;
+  margin-top: 70px;
+}
+
+.containercardperso {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  border-radius: 30px;
+  box-shadow: 0 20px 20px -10px #615f5f;
+  height: 216px;
+}
+
+.persoimg {
+  width: 45%;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+.persoimg img {
+  width: 100%;
+  border-right: 2px solid #000000;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+.containerinfoperso {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  justify-content: center;
+  align-items: center;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  background-color: #0ebebe;
+}
+
+.more {
+  width: 170px;
+  margin-bottom: 70px;
+}
+
+.containeracceuil button {
+  margin-top: 30px;
+}
+
+.name,
+.age,
+.ville,
+.email,
+.tel,
+.anniv {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 25px;
+}
+
+.containerpole {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+.pole {
+  display: flex;
+  justify-content: center;
+  background-color: #fec89a;
+  border-radius: 30px;
+  box-shadow: 0 20px 20px -10px #615f5f;
+  width: 90px;
+  margin-right: 20px;
+}
+
+/*Liste*/
+
+.containersearch {
+  border: 2px solid green;
+  margin-bottom: 40px;
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-top: 70px;
+}
+
+.containerlist {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 40px;
+}
+
+.listperso {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+}
+
+.Search input,
+.Search select {
+  height: 30px;
+}
+
+select {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/*Modification*/
+
+.containermodification {
+  display: flex;
+  border: 2px solid pink;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.formmodif {
+  border: 2px solid maroon;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 40%;
+  height: 350px;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to bottom right, #0ebebe, #fec89a);
+  box-shadow: 0 20px 20px -10px #615f5f;
+}
+
+.formmodif input {
+  margin-top: 30px;
+}
+
+/*RESPONSIVE
+
+
+
+
+*/
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 100px) and (max-device-width: 480px) {
+  /* Styles */
+  h1 {
+    text-align: center;
+  }
+
+  form {
+    margin-top: 50px;
+    width: 80%;
+  }
+
+  .containermorenav {
+    width: 150px;
+  }
+
+  .imgpersoco img {
+    width: 60px;
+  }
+
+  .btnnav {
+    width: 20px;
+  }
+
+  .txtdeco {
+    display: none;
+  }
+
+  .button {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  .textresponsive {
+    text-align: center;
+  }
+
+  .cards {
+    width: 95%;
+    font-size: 12px;
+    height: 170px;
+  }
+
+  .containercardperso {
+    height: 170px;
+  }
+
+  .containerinfoperso {
+    width: 71%;
+    height: 170px;
+  }
+
+  .persoimg {
+    width: 60%;
+  }
+}
+@media screen and (min-width: 480px) and (max-width: 1310px) {
+  h1 {
+    text-align: center;
+  }
+
+  form {
+    margin-top: 50px;
+    width: 80%;
+  }
+
+  .containermorenav {
+    width: 150px;
+  }
+
+  .imgpersoco img {
+    width: 60px;
+  }
+
+  .btnnav {
+    width: 20px;
+  }
+
+  .txtdeco {
+    display: none;
+  }
+
+  .button {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  .textresponsive {
+    text-align: center;
+  }
+  .cards {
+    width: 60%;
+    font-size: 16px;
+  }
+
+  .containersearch {
+    width: 100%;
+    padding: 0px !important;
+  }
+
+  .Search {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border: 2px solid darkorange;
+    height: 150px;
+  }
+
+  .listperso {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .persoimg {
+    width: 57%;
+  }
+
+  .persoimg img {
+    width: 100% !important;
+  }
+
+  .formmodif {
+    width: 80%;
+    height: auto;
+  }
+
+  .containermorenav {
+    width: 160px;
+  }
+}
