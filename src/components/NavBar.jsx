@@ -13,7 +13,7 @@ function NavBar(){
 let id = localStorage.getItem('id');
 let [datasPeople, setDatasPeople] = useState();
 let token = localStorage.getItem('token')
-
+let admin = localStorage.getItem('admin')
 
 useEffect(() =>{
     let Url=`http://localhost:7000/api/collaborateurs/${id}`
@@ -37,6 +37,13 @@ useEffect(() =>{
           
 
           <div className='containermorenav'>
+          
+        
+<div style={{display:admin?"block":"none"}}>
+<Link  to={'/Ajout'}>
+    <button>Ajouter un collaborateur</button>
+    </Link>
+</div>
 
 
 <Link to={'/List'}>

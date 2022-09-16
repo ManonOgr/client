@@ -8,7 +8,7 @@ return await axios.post('http://localhost:7000/api/login',{
 })
 .then(function(response){
     console.log(response)
-    SetLocalStorage(response.data.token,response.data.user.id)
+    SetLocalStorage(response.data.token,response.data.user.id, response.data.user.isAdmin)
     })
     .catch(function(error){
         console.log(error)

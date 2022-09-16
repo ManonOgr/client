@@ -2,10 +2,13 @@ import React from "react";
 import { useState } from "react";
 import { modification } from "../services/modification";
 import {useForm} from "react-hook-form";
+import { ajout } from "../services/ajout";
+import {useLocation} from "react-router-dom";
 
 function Formulaire(props) {
   let token = localStorage.getItem("token");
   let id = localStorage.getItem("id");
+  let location = useLocation()
   const {register, getValues, formState : {errors} ,handleSubmit}=  useForm({
     mode: 'onSubmit',
   })
@@ -17,7 +20,15 @@ function Formulaire(props) {
 
 const registernew = data =>{
     let Url = `http://localhost:7000/api/collaborateurs/${id}`
-    modification(token, Url, data.civilité, data.prenom, data.nom, data.mail, data.password, data.tel, data.anniv, data.ville, data.pays, data.urlphoto, data.categories)
+    if (location.pathname === "/Ajout") {
+      let UrlAdd= `http://localhost:7000/api/collaborateurs`
+      ajout(token, UrlAdd, data.civilité, data.prenom, data.nom, data.mail, data.password, data.tel, data.anniv, data.ville, data.pays, data.urlphoto, data.categories)
+    }else if(
+      location.pathname === "/Modification"
+    ){
+      modification(token, Url, data.civilité, data.prenom, data.nom, data.mail, data.password, data.tel, data.anniv, data.ville, data.pays, data.urlphoto, data.categories)
+    }
+    
 }
 
 
