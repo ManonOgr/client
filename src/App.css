@@ -44,7 +44,7 @@ select{
   margin-top: 30px;
 }
 
-p, input, button, .button, label{
+p, h2, input, button, .button, label{
   font-family: 'Poppins', sans-serif;
 }
 
