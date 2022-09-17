@@ -43,6 +43,15 @@ select{
 .button{
   margin-top: 30px;
 }
+
+p, input, button, .button, label{
+  font-family: 'Poppins', sans-serif;
+}
+
+h1{
+  font-family: 'Lemonada', cursive;
+}
+
 /*Navigation*/
 
 nav {
