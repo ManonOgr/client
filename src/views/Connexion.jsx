@@ -33,8 +33,7 @@ function Connexion() {
 
   return (
     <div className="connexion">
-      <h1>Connexion</h1>
-      <form method="POST">
+      <form className="formco" method="POST">
         <img src={logo} alt="logo" />
 
         <label>

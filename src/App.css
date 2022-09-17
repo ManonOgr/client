@@ -108,6 +108,10 @@ nav {
   flex-direction: column;
 }
 
+.formco{
+  margin-top: 100px;
+}
+
 form {
   display: flex;
   flex-direction: column;
