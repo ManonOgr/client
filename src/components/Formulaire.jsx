@@ -21,14 +21,17 @@ const registernew = data =>{
     let Url = `http://localhost:7000/api/collaborateurs/${id}`
     if (location.pathname === "/Ajout") {
       let UrlAdd= `http://localhost:7000/api/collaborateurs`
-      ajout(token, UrlAdd, data.civilité, data.prenom, data.nom, data.mail, data.password, data.tel, data.anniv, data.ville, data.pays, data.urlphoto, data.categories)
-      navigate('/List')
+      ajout(token, UrlAdd, data.civilité, data.prenom, data.nom, data.mail, data.password, data.tel, data.anniv, data.ville, data.pays, data.urlphoto, data.categories).then(res =>{
+        navigate('/List')
+      })
+  
     }else if(
       location.pathname === "/Modification"
     ){
-      modification(token, Url, data.civilité, data.prenom, data.nom, data.mail, data.password, data.tel, data.anniv, data.ville, data.pays, data.urlphoto, data.categories)
-      navigate('/List')
-    }
+      modification(token, Url, data.civilité, data.prenom, data.nom, data.mail, data.password, data.tel, data.anniv, data.ville, data.pays, data.urlphoto, data.categories).then(res =>{
+        navigate('/List')})
+  
+      }
     
 }
 
