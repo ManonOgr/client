@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-
 import logo from "../data/Donuts.png";
 import { login } from "../services/connexion_service";
 
@@ -49,8 +48,6 @@ function Connexion() {
             onChange={OnchangeMdp}
           />
         </label>
-  
-     
 
         <div className="button" onClick={Submit}>
           Connexion

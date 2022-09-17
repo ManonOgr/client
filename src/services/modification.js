@@ -22,17 +22,17 @@ export async function modification(
     },
   };
   let datainfo = {
-    "gender": civilité,
-    "firstname": firstname,
-    "lastname": lastname,
-    "email": mail,
-    "password": password,
-    "phone": phone,
-    "birthdate": birthdate,
-    "city": city,
-    "country": country,
-    "photo": photo,
-    "service": service,
+    gender: civilité,
+    firstname: firstname,
+    lastname: lastname,
+    email: mail,
+    password: password,
+    phone: phone,
+    birthdate: birthdate,
+    city: city,
+    country: country,
+    photo: photo,
+    service: service,
   };
   return await axios.put(url, datainfo, config).then((response) => {
     console.log(response);

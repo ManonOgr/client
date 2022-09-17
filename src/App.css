@@ -34,22 +34,27 @@ span {
   color: #0ebebe;
 }
 
-select{
+select {
   border-radius: 30px;
   height: 30px;
   width: 150px;
 }
 
-.button{
+.button {
   margin-top: 30px;
 }
 
-p, h2, input, button, .button, label{
-  font-family: 'Poppins', sans-serif;
+p,
+h2,
+input,
+button,
+.button,
+label {
+  font-family: "Poppins", sans-serif;
 }
 
-h1{
-  font-family: 'Lemonada', cursive;
+h1 {
+  font-family: "Lemonada", cursive;
 }
 
 /*Navigation*/
@@ -128,7 +133,6 @@ form img {
 .connexion form input {
   margin-top: 30px;
 }
-
 
 input {
   background-color: #ffff;
@@ -232,9 +236,9 @@ input {
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-} 
+}
 
-.Search{
+.Search {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -243,7 +247,9 @@ input {
   box-shadow: none;
 }
 
-.Search input, .Search select, .Search label{
+.Search input,
+.Search select,
+.Search label {
   margin-left: 20px;
 }
 
@@ -282,13 +288,14 @@ select {
   flex-direction: column;
 }
 
-.formmodif input, .formmodif select {
+.formmodif input,
+.formmodif select {
   margin-top: 30px;
 }
 
 /* Ajout admin */
 
-.containerajout{
+.containerajout {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -310,7 +317,7 @@ select {
     font-size: 30px !important;
   }
 
-  h2{
+  h2 {
     font-size: 20px !important;
   }
 
@@ -377,7 +384,6 @@ select {
   .containermorenav {
     width: 360px;
   }
-
 }
 @media screen and (min-width: 480px) and (max-width: 1310px) {
   h1 {
@@ -429,7 +435,9 @@ select {
     width: 30%;
   }
 
-  .Search input, .Search select, .Search label{
+  .Search input,
+  .Search select,
+  .Search label {
     margin-top: 20px;
   }
 

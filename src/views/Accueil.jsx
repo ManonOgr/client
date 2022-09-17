@@ -40,7 +40,6 @@ function Accueil() {
       <NavBar />
 
       <div className="containeracceuil">
-        
         <h1>
           Bienvenue sur l'intranet de <span>Dan's</span>
         </h1>
@@ -49,8 +48,7 @@ function Accueil() {
           de l'entreprise.
         </p>
         <h2>Connaissez-vous : </h2>
-        
-       
+
         {DatasRandom && (
           <Card
             name={DatasRandom.firstname + " " + DatasRandom.lastname}

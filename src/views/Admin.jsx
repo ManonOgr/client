@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-
-
 import { login } from "../services/connexion_service";
 
 function Connexion() {
