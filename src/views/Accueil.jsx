@@ -13,6 +13,8 @@ function Accueil() {
 
   let [DatasRandom, SetDataRandom] = useState();
 
+console.log(DatasRandom?.id);
+
   useEffect(() => {
     Datas(Url, token).then((res) => {
       SetDataRandom(res.data);
@@ -59,6 +61,7 @@ function Accueil() {
             img={DatasRandom.photo}
             ville={DatasRandom.city}
             age={age(DatasRandom.birthdate) + " ans"}
+            id={DatasRandom.id}
           />
         )}
 

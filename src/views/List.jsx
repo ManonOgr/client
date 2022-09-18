@@ -10,7 +10,6 @@ function List() {
   let Url = "http://localhost:7000/api/collaborateurs ";
   let token = localStorage.getItem("token");
   let navigate = useNavigate();
-  let input = useRef();
   const { register, handleSubmit } = useForm({
     mode: "onChange",
   });
@@ -173,6 +172,8 @@ function List() {
                 img={people.photo}
                 ville={people.city + " " + people.country}
                 age={age(people.birthdate) + " ans"}
+                id={people.id}
+                stateUser = {SetDataPeoples}
               />
             );
           })}
@@ -182,4 +183,4 @@ function List() {
   );
 }
 
-export default List;
+export default List;``
