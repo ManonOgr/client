@@ -141,6 +141,10 @@ input {
   height: 20px;
 }
 
+.formco{
+  margin-top: 75px;
+}
+
 /*Cards*/
 
 .containeracceuil {
@@ -215,7 +219,7 @@ input {
   display: flex;
   width: 100%;
   margin-top: 10px;
-  justify-content: space-between;
+  justify-content: flex-end;
   height: 20%;
 }
 
@@ -237,8 +241,9 @@ input {
   justify-content: center;
   align-items: center;
   width: 25px;
-  height: 10px;
+  height: 5px;
 margin-left: 30px;
+margin-top: 0px !important;
 box-shadow: none;
 }
 
