@@ -36,7 +36,6 @@ function List() {
           filterpeople.service === "Marketing"
         );
       });
-      console.log(filter);
       SetDataPeoples(filter);
     }
     if (data.choice === "city" && data.choicecat === "Marketing") {
@@ -46,7 +45,6 @@ function List() {
           filterpeople.service === "Marketing"
         );
       });
-      console.log(filter);
       SetDataPeoples(filter);
     }
     if (data.choice === "name" && data.choicecat === "Technique") {
@@ -101,7 +99,6 @@ function List() {
       SetDataPeoples(filter);
     }
 
-    console.log(data);
   };
 
   function age(date) {

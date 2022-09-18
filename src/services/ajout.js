@@ -35,7 +35,6 @@ export async function ajout(
     service: service,
   };
   return await axios.post(url, datainfo, config).then((response) => {
-    console.log(response);
     return response;
   });
 }

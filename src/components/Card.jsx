@@ -18,7 +18,6 @@ if (pole === "Marketing") {
 
 const userDelete = (id) =>{
   let url = `http://localhost:7000/api/collaborateurs/${id}`
-  console.log("click")
   DeleteUser(url, token).then(res =>{
     Datas('http://localhost:7000/api/collaborateurs/', token).then(response =>{
       props.stateUser(response.data)

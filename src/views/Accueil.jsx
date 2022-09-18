@@ -13,12 +13,10 @@ function Accueil() {
 
   let [DatasRandom, SetDataRandom] = useState();
 
-console.log(DatasRandom?.id);
 
   useEffect(() => {
     Datas(Url, token).then((res) => {
       SetDataRandom(res.data);
-      console.log(res.data);
     });
     if (token === null) {
       navigate("/");

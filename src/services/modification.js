@@ -35,7 +35,6 @@ export async function modification(
     service: service,
   };
   return await axios.put(url, datainfo, config).then((response) => {
-    console.log(response);
     return response;
   });
 }

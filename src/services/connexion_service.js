@@ -8,7 +8,6 @@ export async function login(email, password) {
       password: password,
     })
     .then(function (response) {
-      console.log(response);
       SetLocalStorage(
         response.data.token,
         response.data.user.id,
@@ -16,6 +15,5 @@ export async function login(email, password) {
       );
     })
     .catch(function (error) {
-      console.log(error);
     });
 }

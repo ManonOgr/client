@@ -23,7 +23,6 @@ function Connexion() {
   }, []);
 
   function Submit() {
-    console.log(email, mdp);
     login(email, mdp).then((res) => {
       navigate("/Accueil");
     });
